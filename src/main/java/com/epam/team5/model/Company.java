@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class Company {
+public class Company implements Identifiable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;

@@ -1,27 +1,23 @@
 package com.epam.team5.model;
 
+
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-
-@Entity
 @Data
+@EqualsAndHashCode(callSuper = true)
+@Entity
 @NoArgsConstructor
-public class Employee {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
-    public String fName;
-    public String lName;
-    public int experience;
+public class Employee extends User {
+    private String role;
+    private int salary;
 
-    public Employee(String fName, String lName, int experience) {
-        this.fName = fName;
-        this.lName = lName;
-        this.experience = experience;
+    public Employee(String lastName, String firstName, String username, String password, String role, int salary) {
+        super(lastName, firstName, username, password);
+        this.role = role;
+        this.salary = salary;
     }
 }
